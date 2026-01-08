@@ -7,7 +7,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 8080;
 const DATA_PATH = path.resolve(__dirname, "data.json");
 
 app.use(express.json());
@@ -30,6 +29,6 @@ app.use((req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
 });
 
-app.listen(PORT, () =>
-  console.log(`Server running on http://localhost:${PORT}`)
+app.listen(process.env.PORT, () =>
+  console.log(`Server running on http://localhost:${process.env.PORT}`)
 );
